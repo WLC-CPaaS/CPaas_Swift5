@@ -1,0 +1,12 @@
+# ModelsGenerateConfigFileRequest
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**parameters** | [**ModelsConfigFileParameter**](ModelsConfigFileParameter.md) |  | 
+**templateFileId** | **String** |  | 
+**templateId** | **String** |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
