@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct ServiceE911URIInput: Codable, JSONEncodable, Hashable {
 
-    public var callerName: String
+    public var callerName: String?
     public var uri: String
 
-    public init(callerName: String, uri: String) {
+    public init(callerName: String? = nil, uri: String) {
         self.callerName = callerName
         self.uri = uri
     }
@@ -29,7 +29,7 @@ public struct ServiceE911URIInput: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(callerName, forKey: .callerName)
+        try container.encodeIfPresent(callerName, forKey: .callerName)
         try container.encode(uri, forKey: .uri)
     }
 }

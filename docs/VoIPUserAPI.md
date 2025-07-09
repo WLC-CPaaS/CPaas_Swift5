@@ -1,6 +1,6 @@
 # VoIPUserAPI
 
-All URIs are relative to *http://API_HOSTNAME*
+All URIs are relative to *http://api.beta.cpaaslabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 Impersonate a User
 
-Impersonate as another user if you have access to admin.
+Retrieve a token for making presence calls.
 
 ### Example
 ```swift

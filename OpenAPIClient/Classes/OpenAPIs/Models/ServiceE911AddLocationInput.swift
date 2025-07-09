@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct ServiceE911AddLocationInput: Codable, JSONEncodable, Hashable {
 
-    public var location: ServiceE911LocationInput
-    public var uri: ServiceE911URIInput
+    public var location: ServiceE911LocationInput?
+    public var uri: ServiceE911URIInput?
 
-    public init(location: ServiceE911LocationInput, uri: ServiceE911URIInput) {
+    public init(location: ServiceE911LocationInput? = nil, uri: ServiceE911URIInput? = nil) {
         self.location = location
         self.uri = uri
     }
@@ -29,8 +29,8 @@ public struct ServiceE911AddLocationInput: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(location, forKey: .location)
-        try container.encode(uri, forKey: .uri)
+        try container.encodeIfPresent(location, forKey: .location)
+        try container.encodeIfPresent(uri, forKey: .uri)
     }
 }
 

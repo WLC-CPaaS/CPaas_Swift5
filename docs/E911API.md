@@ -1,6 +1,6 @@
 # E911API
 
-All URIs are relative to *http://API_HOSTNAME*
+All URIs are relative to *http://api.beta.cpaaslabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 # **v1E911Get**
 ```swift
-    open class func v1E911Get(completion: @escaping (_ data: ServiceDocE911URIsApiOutput?, _ error: Error?) -> Void)
+    open class func v1E911Get(completion: @escaping (_ data: ServiceDocsE911URIsApiOutput?, _ error: Error?) -> Void)
 ```
 
 Get E911 List
@@ -47,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ServiceDocE911URIsApiOutput**](ServiceDocE911URIsApiOutput.md)
+[**ServiceDocsE911URIsApiOutput**](ServiceDocsE911URIsApiOutput.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ No authorization required
 
 # **v1E911LocationLocationIDActivatePut**
 ```swift
-    open class func v1E911LocationLocationIDActivatePut(locationID: String, completion: @escaping (_ data: ServiceDocE911ActiveLocationOutput?, _ error: Error?) -> Void)
+    open class func v1E911LocationLocationIDActivatePut(locationID: String, completion: @escaping (_ data: ServiceDocsE911ActiveLocationOutput?, _ error: Error?) -> Void)
 ```
 
 Activate E911 Location
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911ActiveLocationOutput**](ServiceDocE911ActiveLocationOutput.md)
+[**ServiceDocsE911ActiveLocationOutput**](ServiceDocsE911ActiveLocationOutput.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 
 # **v1E911LocationLocationIDDelete**
 ```swift
-    open class func v1E911LocationLocationIDDelete(locationID: String, completion: @escaping (_ data: ServiceDocE911RemoveLocationOutput?, _ error: Error?) -> Void)
+    open class func v1E911LocationLocationIDDelete(locationID: String, completion: @escaping (_ data: ServiceDocsE911RemoveLocationOutput?, _ error: Error?) -> Void)
 ```
 
 Delete E911 Location
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911RemoveLocationOutput**](ServiceDocE911RemoveLocationOutput.md)
+[**ServiceDocsE911RemoveLocationOutput**](ServiceDocsE911RemoveLocationOutput.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ No authorization required
 
 # **v1E911LocationValidatePut**
 ```swift
-    open class func v1E911LocationValidatePut(reqBody: ServiceE911ValidateLocationInput, completion: @escaping (_ data: ServiceDocE911ValidateLocationOutput?, _ error: Error?) -> Void)
+    open class func v1E911LocationValidatePut(reqBody: ServiceE911ValidateLocationInput, completion: @escaping (_ data: ServiceDocsE911ValidateLocationOutput?, _ error: Error?) -> Void)
 ```
 
 Validate a Location
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911ValidateLocationOutput**](ServiceDocE911ValidateLocationOutput.md)
+[**ServiceDocsE911ValidateLocationOutput**](ServiceDocsE911ValidateLocationOutput.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ No authorization required
 
 # **v1E911PhoneNumberDelete**
 ```swift
-    open class func v1E911PhoneNumberDelete(phoneNumber: String, completion: @escaping (_ data: ServiceDocE911RemoveURIApiOutput?, _ error: Error?) -> Void)
+    open class func v1E911PhoneNumberDelete(phoneNumber: String, completion: @escaping (_ data: ServiceDocsE911RemoveURIApiOutput?, _ error: Error?) -> Void)
 ```
 
 Delete E911 Phone Number
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911RemoveURIApiOutput**](ServiceDocE911RemoveURIApiOutput.md)
+[**ServiceDocsE911RemoveURIApiOutput**](ServiceDocsE911RemoveURIApiOutput.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ No authorization required
 
 # **v1E911PhoneNumberLocationActiveGet**
 ```swift
-    open class func v1E911PhoneNumberLocationActiveGet(phoneNumber: String, completion: @escaping (_ data: ServiceDocE911ActiveLocationURIApiOutput?, _ error: Error?) -> Void)
+    open class func v1E911PhoneNumberLocationActiveGet(phoneNumber: String, completion: @escaping (_ data: ServiceDocsE911ActiveLocationURIApiOutput?, _ error: Error?) -> Void)
 ```
 
 Get Actvie Location for a Phone Number
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911ActiveLocationURIApiOutput**](ServiceDocE911ActiveLocationURIApiOutput.md)
+[**ServiceDocsE911ActiveLocationURIApiOutput**](ServiceDocsE911ActiveLocationURIApiOutput.md)
 
 ### Authorization
 
@@ -312,7 +312,7 @@ No authorization required
 
 # **v1E911PhoneNumberLocationGet**
 ```swift
-    open class func v1E911PhoneNumberLocationGet(phoneNumber: String, completion: @escaping (_ data: ServiceDocE911LocationsURIApiOutput?, _ error: Error?) -> Void)
+    open class func v1E911PhoneNumberLocationGet(phoneNumber: String, completion: @escaping (_ data: ServiceDocsE911LocationsURIApiOutput?, _ error: Error?) -> Void)
 ```
 
 Get Location List for Phone Number
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911LocationsURIApiOutput**](ServiceDocE911LocationsURIApiOutput.md)
+[**ServiceDocsE911LocationsURIApiOutput**](ServiceDocsE911LocationsURIApiOutput.md)
 
 ### Authorization
 
@@ -362,7 +362,7 @@ No authorization required
 
 # **v1E911Post**
 ```swift
-    open class func v1E911Post(reqBody: ServiceE911AddLocationInput, completion: @escaping (_ data: ServiceDocE911AddLocationOutput?, _ error: Error?) -> Void)
+    open class func v1E911Post(reqBody: ServiceE911AddLocationInput, completion: @escaping (_ data: ServiceDocsE911AddLocationOutput?, _ error: Error?) -> Void)
 ```
 
 Create an E911 Location
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ServiceDocE911AddLocationOutput**](ServiceDocE911AddLocationOutput.md)
+[**ServiceDocsE911AddLocationOutput**](ServiceDocsE911AddLocationOutput.md)
 
 ### Authorization
 

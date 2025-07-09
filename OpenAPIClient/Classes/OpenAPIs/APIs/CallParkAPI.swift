@@ -20,7 +20,7 @@ open class CallParkAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1AccountAccountIDParkedcallGet(accountID: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsParkedcallGet?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1AccountAccountIDParkedcallGet(accountID: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsCallparkGet?, _ error: Error?) -> Void)) -> RequestTask {
         return v1AccountAccountIDParkedcallGetWithRequestBuilder(accountID: accountID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -39,9 +39,9 @@ open class CallParkAPI {
        - type: apiKey Authorization (HEADER)
        - name: BearerAuth
      - parameter accountID: (path) Account ID, 32 alpha numeric 
-     - returns: RequestBuilder<ServiceDocsParkedcallGet> 
+     - returns: RequestBuilder<ServiceDocsCallparkGet> 
      */
-    open class func v1AccountAccountIDParkedcallGetWithRequestBuilder(accountID: String) -> RequestBuilder<ServiceDocsParkedcallGet> {
+    open class func v1AccountAccountIDParkedcallGetWithRequestBuilder(accountID: String) -> RequestBuilder<ServiceDocsCallparkGet> {
         var localVariablePath = "/v1/account/{accountID}/parkedcall"
         let accountIDPreEscape = "\(APIHelper.mapValueToPathItem(accountID))"
         let accountIDPostEscape = accountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -57,7 +57,7 @@ open class CallParkAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocsParkedcallGet>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsCallparkGet>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

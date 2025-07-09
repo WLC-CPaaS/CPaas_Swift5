@@ -1,26 +1,79 @@
 # ProvisioningAPI
 
-All URIs are relative to *http://API_HOSTNAME*
+All URIs are relative to *http://api.beta.cpaaslabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1ApBrandBrandFamilyFamilyGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilyget) | **GET** /v1/ap/brand/{brand}/family/{family} | Get Family
+[**v1AccountAccountIDProvisionFilenameGet**](ProvisioningAPI.md#v1accountaccountidprovisionfilenameget) | **GET** /v1/account/{accountID}/provision/{filename} | Get Config File Details
+[**v1ApBrandBrandFamilyFamilyGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilyget) | **GET** /v1/ap/brand/{brand}/family/{family} | Get Family Details
 [**v1ApBrandBrandFamilyFamilyModelGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilymodelget) | **GET** /v1/ap/brand/{brand}/family/{family}/model | Get Model List
-[**v1ApBrandBrandFamilyFamilyModelModelGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilymodelmodelget) | **GET** /v1/ap/brand/{brand}/family/{family}/model/{model} | Get Model
+[**v1ApBrandBrandFamilyFamilyModelModelGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilymodelmodelget) | **GET** /v1/ap/brand/{brand}/family/{family}/model/{model} | Get Model Details
 [**v1ApBrandBrandFamilyFamilyModelModelTemplateGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilymodelmodeltemplateget) | **GET** /v1/ap/brand/{brand}/family/{family}/model/{model}/template | Get Template List
-[**v1ApBrandBrandFamilyFamilyModelModelTemplateTemplateGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilymodelmodeltemplatetemplateget) | **GET** /v1/ap/brand/{brand}/family/{family}/model/{model}/template/{template} | Get Template
+[**v1ApBrandBrandFamilyFamilyModelModelTemplateTemplateGet**](ProvisioningAPI.md#v1apbrandbrandfamilyfamilymodelmodeltemplatetemplateget) | **GET** /v1/ap/brand/{brand}/family/{family}/model/{model}/template/{template} | Get Template Details
 [**v1ApBrandBrandFamilyGet**](ProvisioningAPI.md#v1apbrandbrandfamilyget) | **GET** /v1/ap/brand/{brand}/family | Get Family List
-[**v1ApBrandBrandGet**](ProvisioningAPI.md#v1apbrandbrandget) | **GET** /v1/ap/brand/{brand} | Get Brand
-[**v1ApBrandGet**](ProvisioningAPI.md#v1apbrandget) | **GET** /v1/ap/brand | Get Brand
-[**v1ApConfigfileGeneratePost**](ProvisioningAPI.md#v1apconfigfilegeneratepost) | **POST** /v1/ap/configfile/generate | Generate config file
+[**v1ApBrandBrandGet**](ProvisioningAPI.md#v1apbrandbrandget) | **GET** /v1/ap/brand/{brand} | Get Brand Details
+[**v1ApBrandGet**](ProvisioningAPI.md#v1apbrandget) | **GET** /v1/ap/brand | Get Brand List
+[**v1ApConfigfileGeneratePost**](ProvisioningAPI.md#v1apconfigfilegeneratepost) | **POST** /v1/ap/configfile/generate | Generate Config File
 
+
+# **v1AccountAccountIDProvisionFilenameGet**
+```swift
+    open class func v1AccountAccountIDProvisionFilenameGet(accountID: String, filename: String, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+```
+
+Get Config File Details
+
+Retrieve the configuration details (e.g., settings and parameters) for a device.
+
+### Example
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import OpenAPIClient
+
+let accountID = "accountID_example" // String | Account ID, 32 alpha numeric
+let filename = "filename_example" // String | Name of config file
+
+// Get Config File Details
+ProvisioningAPI.v1AccountAccountIDProvisionFilenameGet(accountID: accountID, filename: filename) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountID** | **String** | Account ID, 32 alpha numeric | 
+ **filename** | **String** | Name of config file | 
+
+### Return type
+
+**URL**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1ApBrandBrandFamilyFamilyGet**
 ```swift
     open class func v1ApBrandBrandFamilyFamilyGet(brand: String, family: String, completion: @escaping (_ data: ProvisioningDocsDocsFamilyOutputSingle?, _ error: Error?) -> Void)
 ```
 
-Get Family
+Get Family Details
 
 Retrieve a family's details by the randomly generated ID.
 
@@ -32,7 +85,7 @@ import OpenAPIClient
 let brand = "brand_example" // String | brand
 let family = "family_example" // String | family
 
-// Get Family
+// Get Family Details
 ProvisioningAPI.v1ApBrandBrandFamilyFamilyGet(brand: brand, family: family) { (response, error) in
     guard error == nil else {
         print(error)
@@ -132,7 +185,7 @@ Name | Type | Description  | Notes
     open class func v1ApBrandBrandFamilyFamilyModelModelGet(brand: String, family: String, model: String, completion: @escaping (_ data: ProvisioningDocsDocsModelOutputSingle?, _ error: Error?) -> Void)
 ```
 
-Get Model
+Get Model Details
 
 Retrieve a model's details by the randomly generated ID.
 
@@ -145,7 +198,7 @@ let brand = "brand_example" // String | brand
 let family = "family_example" // String | family
 let model = "model_example" // String | model
 
-// Get Model
+// Get Model Details
 ProvisioningAPI.v1ApBrandBrandFamilyFamilyModelModelGet(brand: brand, family: family, model: model) { (response, error) in
     guard error == nil else {
         print(error)
@@ -250,7 +303,7 @@ Name | Type | Description  | Notes
     open class func v1ApBrandBrandFamilyFamilyModelModelTemplateTemplateGet(brand: String, family: String, model: String, template: String, completion: @escaping (_ data: ProvisioningDocsDocsTemplateOutputSingle?, _ error: Error?) -> Void)
 ```
 
-Get Template
+Get Template Details
 
 Retrieve details about a template for a model by the randomly generated ID.
 
@@ -264,7 +317,7 @@ let family = "family_example" // String | family
 let model = "model_example" // String | model
 let template = "template_example" // String | template
 
-// Get Template
+// Get Template Details
 ProvisioningAPI.v1ApBrandBrandFamilyFamilyModelModelTemplateTemplateGet(brand: brand, family: family, model: model, template: template) { (response, error) in
     guard error == nil else {
         print(error)
@@ -364,7 +417,7 @@ Name | Type | Description  | Notes
     open class func v1ApBrandBrandGet(brand: String, completion: @escaping (_ data: ProvisioningDocsDocsBrandOutputSingle?, _ error: Error?) -> Void)
 ```
 
-Get Brand
+Get Brand Details
 
 Retrieve a brand's details by the randomly generated ID.
 
@@ -375,7 +428,7 @@ import OpenAPIClient
 
 let brand = "brand_example" // String | brand id to retrieve a brand
 
-// Get Brand
+// Get Brand Details
 ProvisioningAPI.v1ApBrandBrandGet(brand: brand) { (response, error) in
     guard error == nil else {
         print(error)
@@ -414,7 +467,7 @@ Name | Type | Description  | Notes
     open class func v1ApBrandGet(brandName: String? = nil, pageSize: Int? = nil, startKey: String? = nil, status: Status_v1ApBrandGet? = nil, completion: @escaping (_ data: ProvisioningDocsDocsBrandsOutput?, _ error: Error?) -> Void)
 ```
 
-Get Brand
+Get Brand List
 
 Retrieve a list of all brands (e.g., Yealink and Polycom) by client.
 
@@ -428,7 +481,7 @@ let pageSize = 987 // Int |  (optional)
 let startKey = "startKey_example" // String |  (optional)
 let status = "status_example" // String |  (optional)
 
-// Get Brand
+// Get Brand List
 ProvisioningAPI.v1ApBrandGet(brandName: brandName, pageSize: pageSize, startKey: startKey, status: status) { (response, error) in
     guard error == nil else {
         print(error)
@@ -470,7 +523,7 @@ Name | Type | Description  | Notes
     open class func v1ApConfigfileGeneratePost(params: ModelsGenerateConfigFileRequest, completion: @escaping (_ data: ProvisioningDocsDocsConfigFileOutput?, _ error: Error?) -> Void)
 ```
 
-Generate config file
+Generate Config File
 
 Generate a configuration file that includes a list of parameters passed to the specified template_id in the request payload, with populated values returned in the response.
 
@@ -481,7 +534,7 @@ import OpenAPIClient
 
 let params = models.GenerateConfigFileRequest(parameters: models.ConfigFileParameter(_extension: "_extension_example", httpsHost: "httpsHost_example", httpsPassword: "httpsPassword_example", httpsUsername: "httpsUsername_example", macAddress: "macAddress_example", realm: "realm_example", sipPassword: "sipPassword_example", sipUsername: "sipUsername_example", timezone: "timezone_example", voicemailBoxNumber: "voicemailBoxNumber_example"), templateFileId: "templateFileId_example", templateId: "templateId_example") // ModelsGenerateConfigFileRequest | body params to generate config file
 
-// Generate config file
+// Generate Config File
 ProvisioningAPI.v1ApConfigfileGeneratePost(params: params) { (response, error) in
     guard error == nil else {
         print(error)

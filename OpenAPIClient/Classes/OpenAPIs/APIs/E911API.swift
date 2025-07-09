@@ -19,7 +19,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911Get(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911URIsApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911Get(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911URIsApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911GetWithRequestBuilder().execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -34,9 +34,9 @@ open class E911API {
      Get E911 List
      - GET /v1/e911
      - Obtain e911 URIs associated with the provided account ID.
-     - returns: RequestBuilder<ServiceDocE911URIsApiOutput> 
+     - returns: RequestBuilder<ServiceDocsE911URIsApiOutput> 
      */
-    open class func v1E911GetWithRequestBuilder() -> RequestBuilder<ServiceDocE911URIsApiOutput> {
+    open class func v1E911GetWithRequestBuilder() -> RequestBuilder<ServiceDocsE911URIsApiOutput> {
         let localVariablePath = "/v1/e911"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -49,7 +49,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911URIsApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911URIsApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -62,7 +62,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911LocationLocationIDActivatePut(locationID: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911ActiveLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911LocationLocationIDActivatePut(locationID: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911ActiveLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911LocationLocationIDActivatePutWithRequestBuilder(locationID: locationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -78,9 +78,9 @@ open class E911API {
      - PUT /v1/e911/location/{locationID}/activate
      - Edit the provision location.
      - parameter locationID: (path) Location ID 
-     - returns: RequestBuilder<ServiceDocE911ActiveLocationOutput> 
+     - returns: RequestBuilder<ServiceDocsE911ActiveLocationOutput> 
      */
-    open class func v1E911LocationLocationIDActivatePutWithRequestBuilder(locationID: String) -> RequestBuilder<ServiceDocE911ActiveLocationOutput> {
+    open class func v1E911LocationLocationIDActivatePutWithRequestBuilder(locationID: String) -> RequestBuilder<ServiceDocsE911ActiveLocationOutput> {
         var localVariablePath = "/v1/e911/location/{locationID}/activate"
         let locationIDPreEscape = "\(APIHelper.mapValueToPathItem(locationID))"
         let locationIDPostEscape = locationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -96,7 +96,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911ActiveLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911ActiveLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -109,7 +109,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911LocationLocationIDDelete(locationID: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911RemoveLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911LocationLocationIDDelete(locationID: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911RemoveLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911LocationLocationIDDeleteWithRequestBuilder(locationID: locationID).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -125,9 +125,9 @@ open class E911API {
      - DELETE /v1/e911/location/{locationID}
      - Remove the location.
      - parameter locationID: (path) Location ID 
-     - returns: RequestBuilder<ServiceDocE911RemoveLocationOutput> 
+     - returns: RequestBuilder<ServiceDocsE911RemoveLocationOutput> 
      */
-    open class func v1E911LocationLocationIDDeleteWithRequestBuilder(locationID: String) -> RequestBuilder<ServiceDocE911RemoveLocationOutput> {
+    open class func v1E911LocationLocationIDDeleteWithRequestBuilder(locationID: String) -> RequestBuilder<ServiceDocsE911RemoveLocationOutput> {
         var localVariablePath = "/v1/e911/location/{locationID}"
         let locationIDPreEscape = "\(APIHelper.mapValueToPathItem(locationID))"
         let locationIDPostEscape = locationIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -143,7 +143,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911RemoveLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911RemoveLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -156,7 +156,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911LocationValidatePut(reqBody: ServiceE911ValidateLocationInput, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911ValidateLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911LocationValidatePut(reqBody: ServiceE911ValidateLocationInput, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911ValidateLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911LocationValidatePutWithRequestBuilder(reqBody: reqBody).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -172,9 +172,9 @@ open class E911API {
      - PUT /v1/e911/location/validate
      - Validate the location details.
      - parameter reqBody: (body) location details 
-     - returns: RequestBuilder<ServiceDocE911ValidateLocationOutput> 
+     - returns: RequestBuilder<ServiceDocsE911ValidateLocationOutput> 
      */
-    open class func v1E911LocationValidatePutWithRequestBuilder(reqBody: ServiceE911ValidateLocationInput) -> RequestBuilder<ServiceDocE911ValidateLocationOutput> {
+    open class func v1E911LocationValidatePutWithRequestBuilder(reqBody: ServiceE911ValidateLocationInput) -> RequestBuilder<ServiceDocsE911ValidateLocationOutput> {
         let localVariablePath = "/v1/e911/location/validate"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reqBody)
@@ -187,7 +187,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911ValidateLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911ValidateLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "PUT", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -200,7 +200,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911PhoneNumberDelete(phoneNumber: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911RemoveURIApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911PhoneNumberDelete(phoneNumber: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911RemoveURIApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911PhoneNumberDeleteWithRequestBuilder(phoneNumber: phoneNumber).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -216,9 +216,9 @@ open class E911API {
      - DELETE /v1/e911/{phoneNumber}
      - Delete the e911 URI connected with the account URI.
      - parameter phoneNumber: (path) Phone Number 
-     - returns: RequestBuilder<ServiceDocE911RemoveURIApiOutput> 
+     - returns: RequestBuilder<ServiceDocsE911RemoveURIApiOutput> 
      */
-    open class func v1E911PhoneNumberDeleteWithRequestBuilder(phoneNumber: String) -> RequestBuilder<ServiceDocE911RemoveURIApiOutput> {
+    open class func v1E911PhoneNumberDeleteWithRequestBuilder(phoneNumber: String) -> RequestBuilder<ServiceDocsE911RemoveURIApiOutput> {
         var localVariablePath = "/v1/e911/{phoneNumber}"
         let phoneNumberPreEscape = "\(APIHelper.mapValueToPathItem(phoneNumber))"
         let phoneNumberPostEscape = phoneNumberPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -234,7 +234,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911RemoveURIApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911RemoveURIApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "DELETE", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -247,7 +247,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911PhoneNumberLocationActiveGet(phoneNumber: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911ActiveLocationURIApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911PhoneNumberLocationActiveGet(phoneNumber: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911ActiveLocationURIApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911PhoneNumberLocationActiveGetWithRequestBuilder(phoneNumber: phoneNumber).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -263,9 +263,9 @@ open class E911API {
      - GET /v1/e911/{phoneNumber}/location/active
      - Get the e911 location connected with the URI.
      - parameter phoneNumber: (path) Phone Number 
-     - returns: RequestBuilder<ServiceDocE911ActiveLocationURIApiOutput> 
+     - returns: RequestBuilder<ServiceDocsE911ActiveLocationURIApiOutput> 
      */
-    open class func v1E911PhoneNumberLocationActiveGetWithRequestBuilder(phoneNumber: String) -> RequestBuilder<ServiceDocE911ActiveLocationURIApiOutput> {
+    open class func v1E911PhoneNumberLocationActiveGetWithRequestBuilder(phoneNumber: String) -> RequestBuilder<ServiceDocsE911ActiveLocationURIApiOutput> {
         var localVariablePath = "/v1/e911/{phoneNumber}/location/active"
         let phoneNumberPreEscape = "\(APIHelper.mapValueToPathItem(phoneNumber))"
         let phoneNumberPostEscape = phoneNumberPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -281,7 +281,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911ActiveLocationURIApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911ActiveLocationURIApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -294,7 +294,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911PhoneNumberLocationGet(phoneNumber: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911LocationsURIApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911PhoneNumberLocationGet(phoneNumber: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911LocationsURIApiOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911PhoneNumberLocationGetWithRequestBuilder(phoneNumber: phoneNumber).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -310,9 +310,9 @@ open class E911API {
      - GET /v1/e911/{phoneNumber}/location
      - Access a list of the e911 locations associated with the provided URI.
      - parameter phoneNumber: (path) Phone Number 
-     - returns: RequestBuilder<ServiceDocE911LocationsURIApiOutput> 
+     - returns: RequestBuilder<ServiceDocsE911LocationsURIApiOutput> 
      */
-    open class func v1E911PhoneNumberLocationGetWithRequestBuilder(phoneNumber: String) -> RequestBuilder<ServiceDocE911LocationsURIApiOutput> {
+    open class func v1E911PhoneNumberLocationGetWithRequestBuilder(phoneNumber: String) -> RequestBuilder<ServiceDocsE911LocationsURIApiOutput> {
         var localVariablePath = "/v1/e911/{phoneNumber}/location"
         let phoneNumberPreEscape = "\(APIHelper.mapValueToPathItem(phoneNumber))"
         let phoneNumberPostEscape = phoneNumberPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -328,7 +328,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911LocationsURIApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911LocationsURIApiOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
@@ -341,7 +341,7 @@ open class E911API {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1E911Post(reqBody: ServiceE911AddLocationInput, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocE911AddLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1E911Post(reqBody: ServiceE911AddLocationInput, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsE911AddLocationOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1E911PostWithRequestBuilder(reqBody: reqBody).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -357,9 +357,9 @@ open class E911API {
      - POST /v1/e911
      - Enter new location details.
      - parameter reqBody: (body) location details 
-     - returns: RequestBuilder<ServiceDocE911AddLocationOutput> 
+     - returns: RequestBuilder<ServiceDocsE911AddLocationOutput> 
      */
-    open class func v1E911PostWithRequestBuilder(reqBody: ServiceE911AddLocationInput) -> RequestBuilder<ServiceDocE911AddLocationOutput> {
+    open class func v1E911PostWithRequestBuilder(reqBody: ServiceE911AddLocationInput) -> RequestBuilder<ServiceDocsE911AddLocationOutput> {
         let localVariablePath = "/v1/e911"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: reqBody)
@@ -372,7 +372,7 @@ open class E911API {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocE911AddLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsE911AddLocationOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }

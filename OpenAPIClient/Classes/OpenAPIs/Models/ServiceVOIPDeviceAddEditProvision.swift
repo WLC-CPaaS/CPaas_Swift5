@@ -16,12 +16,14 @@ public struct ServiceVOIPDeviceAddEditProvision: Codable, JSONEncodable, Hashabl
     public var endpointFamily: String?
     public var endpointModel: String?
     public var id: String?
+    public var lineKeys: [ServiceVOIPDeviceAddEditLineKey]?
 
-    public init(endpointBrand: String? = nil, endpointFamily: String? = nil, endpointModel: String? = nil, id: String? = nil) {
+    public init(endpointBrand: String? = nil, endpointFamily: String? = nil, endpointModel: String? = nil, id: String? = nil, lineKeys: [ServiceVOIPDeviceAddEditLineKey]? = nil) {
         self.endpointBrand = endpointBrand
         self.endpointFamily = endpointFamily
         self.endpointModel = endpointModel
         self.id = id
+        self.lineKeys = lineKeys
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
@@ -29,6 +31,7 @@ public struct ServiceVOIPDeviceAddEditProvision: Codable, JSONEncodable, Hashabl
         case endpointFamily = "endpoint_family"
         case endpointModel = "endpoint_model"
         case id
+        case lineKeys = "line_keys"
     }
 
     // Encodable protocol methods
@@ -39,6 +42,7 @@ public struct ServiceVOIPDeviceAddEditProvision: Codable, JSONEncodable, Hashabl
         try container.encodeIfPresent(endpointFamily, forKey: .endpointFamily)
         try container.encodeIfPresent(endpointModel, forKey: .endpointModel)
         try container.encodeIfPresent(id, forKey: .id)
+        try container.encodeIfPresent(lineKeys, forKey: .lineKeys)
     }
 }
 

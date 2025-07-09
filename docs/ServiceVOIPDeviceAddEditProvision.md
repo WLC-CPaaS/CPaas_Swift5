@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **endpointFamily** | **String** |  | [optional] 
 **endpointModel** | **String** |  | [optional] 
 **id** | **String** |  | [optional] 
+**lineKeys** | [ServiceVOIPDeviceAddEditLineKey] |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

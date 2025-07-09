@@ -12,7 +12,7 @@ import AnyCodable
 
 public struct ServiceDocsGetQueueRecipients: Codable, JSONEncodable, Hashable {
 
-    public var data: ServiceQueueRecipientOutputFull?
+    public var data: ServiceQueueRecipientOutput?
     /** List Pagination: Used to get the next page of results. Will not exist if this is the last page. */
     public var nextStartKey: String?
     /** List Pagination: The number of results returned in this page */
@@ -24,7 +24,7 @@ public struct ServiceDocsGetQueueRecipients: Codable, JSONEncodable, Hashable {
     /** HTTP response status code */
     public var statusCode: Int?
 
-    public init(data: ServiceQueueRecipientOutputFull? = nil, nextStartKey: String? = nil, pageSize: Int? = nil, requestId: String? = nil, startKey: String? = nil, statusCode: Int? = nil) {
+    public init(data: ServiceQueueRecipientOutput? = nil, nextStartKey: String? = nil, pageSize: Int? = nil, requestId: String? = nil, startKey: String? = nil, statusCode: Int? = nil) {
         self.data = data
         self.nextStartKey = nextStartKey
         self.pageSize = pageSize

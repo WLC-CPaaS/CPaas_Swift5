@@ -1,6 +1,6 @@
 # DeviceAPI
 
-All URIs are relative to *http://API_HOSTNAME*
+All URIs are relative to *http://api.beta.cpaaslabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -133,7 +133,7 @@ import OpenAPIClient
 
 let accountid = "accountid_example" // String | Account ID, 32 alpha numeric
 let deviceid = "deviceid_example" // String | Device ID, 32 alpha numeric
-let device = service.VOIPDeviceAddEdit2(callForward: models.CallForward(enabled: false, number: "number_example"), callerId: service.VOIPDeviceAddEdit3c(emergency: service.VOIPDeviceAddEdit4(number: "number_example"), external: nil, _internal: nil), deviceType: "deviceType_example", doNotDisturb: models.VOIPSharedDoNotDisturb(enabled: false), enabled: false, macAddress: "macAddress_example", media: service.VOIPDeviceAddEdit3d(audio: service.VOIPDeviceAddEdit5(codecs: ["codecs_example"])), musicOnHold: models.MusicOnHold(mediaId: "mediaId_example"), name: "name_example", ownerId: "ownerId_example", provision: service.VOIPDeviceAddEditProvision(endpointBrand: "endpointBrand_example", endpointFamily: "endpointFamily_example", endpointModel: "endpointModel_example", id: "id_example"), sip: service.VOIPDeviceAddEdit3a(inviteFormat: "inviteFormat_example", password: "password_example", username: "username_example")) // ServiceVOIPDeviceAddEdit2 | device fields
+let device = service.VOIPDeviceAddEdit2(callForward: models.CallForward(enabled: false, number: "number_example"), callerId: service.VOIPDeviceAddEdit3c(emergency: service.VOIPDeviceAddEdit4(number: "number_example"), external: nil, _internal: nil), deviceType: "deviceType_example", doNotDisturb: models.VOIPSharedDoNotDisturb(enabled: false), enabled: false, macAddress: "macAddress_example", media: service.VOIPDeviceAddEdit3d(audio: service.VOIPDeviceAddEdit5(codecs: ["codecs_example"])), musicOnHold: models.MusicOnHold(mediaId: "mediaId_example"), name: "name_example", ownerId: "ownerId_example", provision: service.VOIPDeviceAddEditProvision(endpointBrand: "endpointBrand_example", endpointFamily: "endpointFamily_example", endpointModel: "endpointModel_example", id: "id_example", lineKeys: [service.VOIPDeviceAddEditLineKey(count: 123, label: "label_example", type: "type_example", value: "value_example")]), sip: service.VOIPDeviceAddEdit3a(inviteFormat: "inviteFormat_example", password: "password_example", username: "username_example")) // ServiceVOIPDeviceAddEdit2 | device fields
 
 // Update Device
 DeviceAPI.v1AccountAccountidDeviceDeviceidPut(accountid: accountid, deviceid: deviceid, device: device) { (response, error) in
@@ -292,7 +292,7 @@ Connect a new device to an account to enhance communication methods.
 import OpenAPIClient
 
 let accountid = "accountid_example" // String | Account ID, 32 alpha numeric
-let device = service.VOIPDeviceAddEdit2(callForward: models.CallForward(enabled: false, number: "number_example"), callerId: service.VOIPDeviceAddEdit3c(emergency: service.VOIPDeviceAddEdit4(number: "number_example"), external: nil, _internal: nil), deviceType: "deviceType_example", doNotDisturb: models.VOIPSharedDoNotDisturb(enabled: false), enabled: false, macAddress: "macAddress_example", media: service.VOIPDeviceAddEdit3d(audio: service.VOIPDeviceAddEdit5(codecs: ["codecs_example"])), musicOnHold: models.MusicOnHold(mediaId: "mediaId_example"), name: "name_example", ownerId: "ownerId_example", provision: service.VOIPDeviceAddEditProvision(endpointBrand: "endpointBrand_example", endpointFamily: "endpointFamily_example", endpointModel: "endpointModel_example", id: "id_example"), sip: service.VOIPDeviceAddEdit3a(inviteFormat: "inviteFormat_example", password: "password_example", username: "username_example")) // ServiceVOIPDeviceAddEdit2 | device fields
+let device = service.VOIPDeviceAddEdit2(callForward: models.CallForward(enabled: false, number: "number_example"), callerId: service.VOIPDeviceAddEdit3c(emergency: service.VOIPDeviceAddEdit4(number: "number_example"), external: nil, _internal: nil), deviceType: "deviceType_example", doNotDisturb: models.VOIPSharedDoNotDisturb(enabled: false), enabled: false, macAddress: "macAddress_example", media: service.VOIPDeviceAddEdit3d(audio: service.VOIPDeviceAddEdit5(codecs: ["codecs_example"])), musicOnHold: models.MusicOnHold(mediaId: "mediaId_example"), name: "name_example", ownerId: "ownerId_example", provision: service.VOIPDeviceAddEditProvision(endpointBrand: "endpointBrand_example", endpointFamily: "endpointFamily_example", endpointModel: "endpointModel_example", id: "id_example", lineKeys: [service.VOIPDeviceAddEditLineKey(count: 123, label: "label_example", type: "type_example", value: "value_example")]), sip: service.VOIPDeviceAddEdit3a(inviteFormat: "inviteFormat_example", password: "password_example", username: "username_example")) // ServiceVOIPDeviceAddEdit2 | device fields
 
 // Create Device
 DeviceAPI.v1AccountAccountidDevicePost(accountid: accountid, device: device) { (response, error) in

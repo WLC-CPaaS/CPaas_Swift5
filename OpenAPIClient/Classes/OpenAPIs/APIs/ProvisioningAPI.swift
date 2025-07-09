@@ -13,7 +13,59 @@ import AnyCodable
 open class ProvisioningAPI {
 
     /**
-     Get Family
+     Get Config File Details
+     
+     - parameter accountID: (path) Account ID, 32 alpha numeric 
+     - parameter filename: (path) Name of config file 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func v1AccountAccountIDProvisionFilenameGet(accountID: String, filename: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) -> RequestTask {
+        return v1AccountAccountIDProvisionFilenameGetWithRequestBuilder(accountID: accountID, filename: filename).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get Config File Details
+     - GET /v1/account/{accountID}/provision/{filename}
+     - Retrieve the configuration details (e.g., settings and parameters) for a device.
+     - parameter accountID: (path) Account ID, 32 alpha numeric 
+     - parameter filename: (path) Name of config file 
+     - returns: RequestBuilder<URL> 
+     */
+    open class func v1AccountAccountIDProvisionFilenameGetWithRequestBuilder(accountID: String, filename: String) -> RequestBuilder<URL> {
+        var localVariablePath = "/v1/account/{accountID}/provision/{filename}"
+        let accountIDPreEscape = "\(APIHelper.mapValueToPathItem(accountID))"
+        let accountIDPostEscape = accountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{accountID}", with: accountIDPostEscape, options: .literal, range: nil)
+        let filenamePreEscape = "\(APIHelper.mapValueToPathItem(filename))"
+        let filenamePostEscape = filenamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        localVariablePath = localVariablePath.replacingOccurrences(of: "{filename}", with: filenamePostEscape, options: .literal, range: nil)
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters: [String: Any]? = nil
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<URL>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "GET", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
+    }
+
+    /**
+     Get Family Details
      
      - parameter brand: (path) brand 
      - parameter family: (path) family 
@@ -33,7 +85,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Family
+     Get Family Details
      - GET /v1/ap/brand/{brand}/family/{family}
      - Retrieve a family's details by the randomly generated ID.
      - API Key:
@@ -145,7 +197,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Model
+     Get Model Details
      
      - parameter brand: (path) brand 
      - parameter family: (path) family 
@@ -166,7 +218,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Model
+     Get Model Details
      - GET /v1/ap/brand/{brand}/family/{family}/model/{model}
      - Retrieve a model's details by the randomly generated ID.
      - API Key:
@@ -290,7 +342,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Template
+     Get Template Details
      
      - parameter brand: (path) brand 
      - parameter family: (path) family 
@@ -312,7 +364,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Template
+     Get Template Details
      - GET /v1/ap/brand/{brand}/family/{family}/model/{model}/template/{template}
      - Retrieve details about a template for a model by the randomly generated ID.
      - API Key:
@@ -427,7 +479,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Brand
+     Get Brand Details
      
      - parameter brand: (path) brand id to retrieve a brand 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -446,7 +498,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Brand
+     Get Brand Details
      - GET /v1/ap/brand/{brand}
      - Retrieve a brand's details by the randomly generated ID.
      - API Key:
@@ -485,7 +537,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Brand
+     Get Brand List
      
      - parameter brandName: (query)  (optional)
      - parameter pageSize: (query)  (optional)
@@ -507,7 +559,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Get Brand
+     Get Brand List
      - GET /v1/ap/brand
      - Retrieve a list of all brands (e.g., Yealink and Polycom) by client.
      - API Key:
@@ -544,7 +596,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Generate config file
+     Generate Config File
      
      - parameter params: (body) body params to generate config file 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -563,7 +615,7 @@ open class ProvisioningAPI {
     }
 
     /**
-     Generate config file
+     Generate Config File
      - POST /v1/ap/configfile/generate
      - Generate a configuration file that includes a list of parameters passed to the specified template_id in the request payload, with populated values returned in the response.
      - API Key:

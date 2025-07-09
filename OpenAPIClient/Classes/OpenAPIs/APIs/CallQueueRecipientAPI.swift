@@ -22,7 +22,7 @@ open class CallQueueRecipientAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1AccountAccountIDLoginrecipientRecipientIDPost(accountID: String, recipientID: String, reqBody: ServiceVOIPCallQueueRecipientLoginLogoutData, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsCallQueueResponseShort?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1AccountAccountIDLoginrecipientRecipientIDPost(accountID: String, recipientID: String, reqBody: ServiceVOIPCallQueueRecipientLoginLogoutData, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ServiceDocsCallQueueRecipientLoginLogoutOutput?, _ error: Error?) -> Void)) -> RequestTask {
         return v1AccountAccountIDLoginrecipientRecipientIDPostWithRequestBuilder(accountID: accountID, recipientID: recipientID, reqBody: reqBody).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -43,9 +43,9 @@ open class CallQueueRecipientAPI {
      - parameter accountID: (path) Account ID, 32 alpha numeric 
      - parameter recipientID: (path) Recipient ID, 32 alpha numeric 
      - parameter reqBody: (body) payload fields 
-     - returns: RequestBuilder<ServiceDocsCallQueueResponseShort> 
+     - returns: RequestBuilder<ServiceDocsCallQueueRecipientLoginLogoutOutput> 
      */
-    open class func v1AccountAccountIDLoginrecipientRecipientIDPostWithRequestBuilder(accountID: String, recipientID: String, reqBody: ServiceVOIPCallQueueRecipientLoginLogoutData) -> RequestBuilder<ServiceDocsCallQueueResponseShort> {
+    open class func v1AccountAccountIDLoginrecipientRecipientIDPostWithRequestBuilder(accountID: String, recipientID: String, reqBody: ServiceVOIPCallQueueRecipientLoginLogoutData) -> RequestBuilder<ServiceDocsCallQueueRecipientLoginLogoutOutput> {
         var localVariablePath = "/v1/account/{accountID}/loginrecipient/{recipientID}"
         let accountIDPreEscape = "\(APIHelper.mapValueToPathItem(accountID))"
         let accountIDPostEscape = accountIDPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -64,7 +64,7 @@ open class CallQueueRecipientAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<ServiceDocsCallQueueResponseShort>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ServiceDocsCallQueueRecipientLoginLogoutOutput>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

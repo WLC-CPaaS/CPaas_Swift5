@@ -15,15 +15,15 @@ public struct ServiceE911LocationInput: Codable, JSONEncodable, Hashable {
     public enum ModelType: String, Codable, CaseIterable {
         case address = "ADDRESS"
     }
-    public var address1: String
+    public var address1: String?
     public var address2: String?
-    public var community: String
+    public var community: String?
     public var plusFour: String?
-    public var postalCode: String
-    public var state: String
-    public var type: ModelType?
+    public var postalCode: String?
+    public var state: String?
+    public var type: ModelType
 
-    public init(address1: String, address2: String? = nil, community: String, plusFour: String? = nil, postalCode: String, state: String, type: ModelType? = nil) {
+    public init(address1: String? = nil, address2: String? = nil, community: String? = nil, plusFour: String? = nil, postalCode: String? = nil, state: String? = nil, type: ModelType) {
         self.address1 = address1
         self.address2 = address2
         self.community = community
@@ -47,13 +47,13 @@ public struct ServiceE911LocationInput: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(address1, forKey: .address1)
+        try container.encodeIfPresent(address1, forKey: .address1)
         try container.encodeIfPresent(address2, forKey: .address2)
-        try container.encode(community, forKey: .community)
+        try container.encodeIfPresent(community, forKey: .community)
         try container.encodeIfPresent(plusFour, forKey: .plusFour)
-        try container.encode(postalCode, forKey: .postalCode)
-        try container.encode(state, forKey: .state)
-        try container.encodeIfPresent(type, forKey: .type)
+        try container.encodeIfPresent(postalCode, forKey: .postalCode)
+        try container.encodeIfPresent(state, forKey: .state)
+        try container.encode(type, forKey: .type)
     }
 }
 

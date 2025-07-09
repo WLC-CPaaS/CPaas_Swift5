@@ -313,7 +313,7 @@ open class VoIPUserAPI {
     /**
      Impersonate a User
      - POST /v1/account/{accountid}/user/{userid}/userauth
-     - Impersonate as another user if you have access to admin.
+     - Retrieve a token for making presence calls.
      - API Key:
        - type: apiKey Authorization (HEADER)
        - name: BearerAuth
